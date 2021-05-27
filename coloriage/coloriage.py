@@ -122,9 +122,9 @@ def make_interactive_plot(G,
         code="""
             var inds = source_data.selected.indices;
             var data = source_data.data;
-            var out = "x, y, z, cell_type, cell_label\\n";
+            var out = "x, y, cell_label\\n";
             for (var i = 0; i < inds.length; i++) {
-                out += data['x'][inds[i]] + "," + data['y'][inds[i]] + "," + data['z'][inds[i]] + "," + data['celltyp'][inds[i]] + "\\n";
+                out += data['x'][inds[i]] + "," + data['y'][inds[i]] + "," + data['label'][inds[i]] + "\\n";
             }
             var file = new Blob([out], {type: 'text/plain'});
 
@@ -143,7 +143,7 @@ def make_interactive_plot(G,
     tooltips = [
         ("X:", "@x"),
         ("Y:", "@y"),
-        ("type:", "@celltyp"),
+        ("Label:", "@label"),
     #    ("static text", "static text"),
     ]
 
